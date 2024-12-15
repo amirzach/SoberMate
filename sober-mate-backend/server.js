@@ -1,5 +1,3 @@
-// server.js
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -27,6 +25,17 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema);
+
+// Post Schema and Model
+const postSchema = new mongoose.Schema({
+  username: String,
+  content: String,
+  likes: { type: Number, default: 0 },
+  comments: [{ username: String, text: String, date: { type: Date, default: Date.now } }],
+  date: { type: Date, default: Date.now }
+});
+
+const Post = mongoose.model('Post', postSchema);
 
 // POST route to register a new user
 app.post('/api/register', async (req, res) => {
@@ -98,6 +107,59 @@ app.post('/api/reset-password', async (req, res) => {
     res.status(200).json({ message: 'Password reset successfully' });
   } catch (err) {
     res.status(500).json({ error: 'Failed to reset password' });
+  }
+});
+
+// POST route to create a new post
+app.post('/api/posts', async (req, res) => {
+  const { username, content } = req.body;
+
+  try {
+    const newPost = new Post({ username, content });
+    await newPost.save();
+    res.status(201).json(newPost);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to create post' });
+  }
+});
+
+// GET route to retrieve all posts
+app.get('/api/posts', async (req, res) => {
+  try {
+    const posts = await Post.find().sort({ date: -1 }); // Newest posts first
+    res.json(posts);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch posts' });
+  }
+});
+
+// POST route to like a post
+app.post('/api/posts/:id/like', async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) return res.status(404).json({ error: 'Post not found' });
+
+    post.likes += 1;
+    await post.save();
+    res.json(post);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to like post' });
+  }
+});
+
+// POST route to comment on a post
+app.post('/api/posts/:id/comment', async (req, res) => {
+  const { username, text } = req.body;
+
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) return res.status(404).json({ error: 'Post not found' });
+
+    post.comments.push({ username, text });
+    await post.save();
+    res.json(post);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to comment on post' });
   }
 });
 
