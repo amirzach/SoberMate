@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './register.css';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -29,7 +30,6 @@ const Register = () => {
       const result = await response.json();
 
       if (response.ok) {
-        // Navigate to the login page after successful registration
         navigate('/login');
       } else {
         setError(result.error || 'Failed to register');
@@ -40,8 +40,9 @@ const Register = () => {
   };
 
   return (
-    <div className="container">
+    <div className="register-container">
       <h1 className="title">Sober <span className="highlight">Mate.</span></h1>
+      <p className="subtitle">Create an account to get started</p>
       <form className="form" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -73,7 +74,7 @@ const Register = () => {
         />
         {error && <p className="error">{error}</p>}
         <button type="submit" className="button">Continue</button>
-        <button className="button" onClick={() => navigate('/login')}>Back</button>
+        <button type="button" className="button back-button" onClick={() => navigate('/')}>Back</button>
       </form>
     </div>
   );

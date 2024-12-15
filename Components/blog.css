@@ -1,0 +1,182 @@
+/* General Container */
+.container {
+    max-width: 3000px; /* Increased width for web */
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden; /* Prevents modal from overflowing */
+  }
+  
+  /* Header */
+  h1 {
+    font-size: 40px;  /* Increased size for better visibility on desktop */
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  
+  /* Floating Button */
+  .floating-btn-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+  }
+  
+  .floating-btn {
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px 20px;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  .floating-btn:hover {
+    background-color: #4e48c8;
+  }
+  
+  .plus-icon {
+    font-size: 32px;
+    line-height: 1;
+  }
+  
+  /* Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Modal */
+  .modal {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 100px;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    resize: none;
+  }
+  
+  textarea:focus {
+    border-color: #6c63ff;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #6c63ff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #4e48c8;
+  }
+  
+  .cancel-button {
+    background-color: #f44336;
+    margin-top: 10px;
+  }
+  
+  .cancel-button:hover {
+    background-color: #e53935;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Posts Section */
+  .posts-container {
+    max-height: 600px;  /* Set max height and make posts scrollable */
+    overflow-y: auto;   /* Enable scrolling */
+  }
+  
+  .post {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .post h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .post p {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .like-button {
+    background-color: #99ccff;
+    color: white;
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .like-button:hover {
+    background-color: #3399ff;
+  }
+  
+  /* Comments Section */
+  .comments {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #eee;
+  }
+  
+  .comments h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .comments input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-top: 10px;
+    outline: none;
+  }
+  
+  .comments input:focus {
+    border-color: #6c63ff;
+  }
+  

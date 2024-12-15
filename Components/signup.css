@@ -1,0 +1,71 @@
+/* General Container */
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+}
+
+/* Title */
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #4a4a4a;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  color: #6c63ff;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 20px;
+  color: #777;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* Button Styling */
+.button {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #6c63ff;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  background-color: #574bd3;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Sign Up Button Specific Styling */
+.signup-button {
+  background-color: #34bfa3;
+}
+
+.signup-button:hover {
+  background-color: #299f82;
+}
+
+/* Centered content */
+.signup-container {
+  text-align: center;
+}
